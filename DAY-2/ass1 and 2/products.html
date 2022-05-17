@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #totalItem{
+        
+         
+           margin: auto;
+           border: solid 1px black;
+           
+        }
+        .product{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(auto,auto);
+        gap: 20px;
+        margin-top: 100px;
+        
+        }
+        .product>div{
+            margin: auto;
+        text-align: center;
+        }
+        .product>div>div{
+            display: flex;
+            justify-content: space-between; 
+        }
+    </style>
+</head>
+<body>
+    <div id="totalItem">
+<span>Total item in the page is:  <label for="" id="Total"></label></span>
+    </div>
+    <div class="product">
+
+    </div>
+</body>
+</html>
+<script>
+    var productData=JSON.parse(localStorage.getItem("Product")) || [];
+
+    displayData(productData);
+
+function displayData(productData){
+
+    document.querySelector(".product").innerHTML=""
+
+    
+    productData.forEach(function(ele){
+
+        console.log("vinod")
+
+    let box=document.createElement("div")
+    let box1=document.createElement("div")
+    let remove=document.createElement("button")
+    remove.innerText="Remove";
+    remove.addEventListener("click",function(){
+        removea(ele)
+    })
+    let soldd=document.createElement("button");
+    soldd.innerText="Sold";
+    soldd.style.backgroundColor="green"
+    soldd.addEventListener("click", function(){
+       soldaa(ele)
+    })
+    box1.append(remove,soldd)
+    let image=document.createElement("img");
+    image.setAttribute("src", ele.image)
+    let name=document.createElement("p");
+    name.innerText=ele.name;
+    let price=document.createElement("p");
+    price.innerText=ele.price;
+    let category=document.createElement("p");
+    category.innerText=ele.category;
+    let gender=document.createElement("p");
+    gender.innerText=ele.gender;
+    let sold=document.createElement("p");
+    sold.innerText=ele.sold;
+    box.append(image,name,category,price,gender,box1);
+    document.querySelector(".product").append(box)
+})
+let length=productData.length;
+document.querySelector("#Total").innerText=length;
+}
+function  soldaa(ele){
+    let x=ele.sold;
+    // console.log(event.target)
+    if(x==false){
+        ele.sold=true;
+        event.target.style.backgroundColor="red"
+        
+    }
+    else if(x==true){
+        ele.sold=false;
+        event.target.style.backgroundColor="green"
+    }
+}
+
+function   removea(ele){
+    let x=ele.name;
+   let filtered= productData.filter(function(element){
+        return element.name != x;
+    })
+    console.log(filtered);
+    localStorage.setItem("Product",JSON.stringify(filtered))
+    length=filtered.length
+    document.querySelector("#Total").innerText=length;
+    displayData(filtered)
+}
+</script>

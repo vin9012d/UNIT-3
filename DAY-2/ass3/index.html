@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+ let akbar={
+     skill:"Singer" 
+ }
+ let amar={
+     skill:"Chef"
+ }
+ let anthani={
+     skill:"Magician"  
+ }
+ function property(name){
+     console.log(`My name is ${name} and now i am a ${this.skill}`)  
+ }
+
+ property.call(akbar,"amar")
+ property.call(akbar,"anthani")
+ property.call(amar,"akbar")
+ property.call(amar,"akbar")
+ property.call(anthani,"amar")
+ property.call(anthani,"akbar")
+//  let f1=property.bind(anthani,"akbar")
+//  console.log(f1)
+//  f1()
+
+</script>
