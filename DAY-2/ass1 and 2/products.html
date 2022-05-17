@@ -33,7 +33,7 @@
 </head>
 <body>
     <div id="totalItem">
-<span>Total item in the page is:  <label for="" id="Total"></label></span>
+<span>Total item in the page is:  <label for="" id="Counter"></label></span>
     </div>
     <div class="product">
 
@@ -41,7 +41,7 @@
 </body>
 </html>
 <script>
-    var productData=JSON.parse(localStorage.getItem("Product")) || [];
+    var productData=JSON.parse(localStorage.getItem("Products")) || [];
 
     displayData(productData);
 
@@ -84,7 +84,7 @@ function displayData(productData){
     document.querySelector(".product").append(box)
 })
 let length=productData.length;
-document.querySelector("#Total").innerText=length;
+document.querySelector("#Counter").innerText=length;
 }
 function  soldaa(ele){
     let x=ele.sold;
@@ -108,7 +108,7 @@ function   removea(ele){
     console.log(filtered);
     localStorage.setItem("Product",JSON.stringify(filtered))
     length=filtered.length
-    document.querySelector("#Total").innerText=length;
+    document.querySelector("#Counter").innerText=length;
     displayData(filtered)
 }
 </script>

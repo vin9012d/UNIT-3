@@ -54,7 +54,7 @@
 }
 
 // var productData= localStorage.getItem(JSON)   [];
-var productData=JSON.parse(localStorage.getItem("Product")) || [];
+var productData=JSON.parse(localStorage.getItem("Products")) || [];
 
 
 
@@ -69,7 +69,7 @@ function produceData(){
    let p1=new product(category,gender,name,price,sold,image);
    productData.push(p1);
 //    console.log(productData)
-localStorage.setItem("Product",JSON.stringify(productData))
+localStorage.setItem("Products",JSON.stringify(productData))
 
 }
 
