@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //     let vin={
+    //         name:"vinod",
+    //     }
+    // vin.prototype.price="1000"
+    //     console.log(vin)
+    //   console.log(vin.prototype)
+
+    // function Vin(){
+    //     this.name="car"
+    // }
+
+
+    // let p1=new Vin();
+    // Vin.prototype.price="1000"
+    // console.log(p1.price)
+
+    // let p1=Object.create(vin);
+    // console.log(p1)
+    // p1.prototype.price=1000;
+    // concole.log(p1)
+    // console.log(price)
+    //_______________________________________________________________________________>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //Chaining of prototype  ----> it connects all the prototypes
+    /*
+
+    let grandfather = {
+        name: "dada"
+    }
+    console.log(grandfather)
+    let papa = Object.create(grandfather, { name: { value: "papa" } });
+    console.log(papa)
+    let beta = Object.create(papa);
+    console.log(beta)
+    console.log(beta.name)
+    console.log("*********************************************--------------------->>>>>>>>>>>")
+    */
+    //----------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    /*
+    let arr=[1,2,3]
+    let arr1=new Array(1,2,3)
+    console.log(arr)
+    console.log(arr1)
+    */
+    //_____________________>>>>>>>  HOW  aruguments are converted in to the array automatically 
+    /*
+    function func(a,b,c,d){
+        console.log(arguments)
+        console.log(arguments.length)
+    }
+    
+    func(1,2,3,4,5,6)
+    
+    */
+
+    //_______________________________________________>>>>>>>>>>>>>>>>>>>>>>>>>
+    //------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> creating aray from normal arguments pass
+
+    let arr3 = new myArray(1, 2, 3, 4, 5, 6);
+    function myArray() {
+        // console.log(arguments.length)
+        Object.defineProperty(this, "length", {
+    value: 0,
+    writable: true,
+    enumerable: false,
+  });
+
+        this.length = arguments.length;
+        for (let i = 0; i < arguments.length; i++) {
+            this[i] = arguments[i]
+        }
+    }
+    console.log(arr3)
+    console.log(Object.values(arr3))  //--->>>>Object.value wil convert into the form of array and only take value from key-value pair                           
+      myArray.prototype.pop= function(){
+        //   console.log("myau")
+       delete this[this.length-1];
+         this.length--;
+      }
+      arr3.pop()
+      arr3.pop()
+      arr3.pop()
+    
+      myArray.prototype.push=function(value){
+          this[this.length]=value;
+          this.length++;
+      }
+      myArray.prototype.top=function(){
+        return this[this.length-1]
+      }
+
+      
+      myArray.prototype.print=function(){
+          let bag=""
+      
+       for(let i=0;i<this.length;i++){
+              bag=bag+this[i]+" ";
+              
+       }
+    console.log(bag) 
+      }
+
+      myArray.prototype.printReverse=function(){
+          let bag=""
+        
+       for(let i=this.length-1;i>=0;i--){
+              bag=bag+this[i]+" ";
+              
+       }
+    console.log(bag) 
+      }
+      
+      myArray.prototype.size=function (){
+          return this.length;
+      }
+
+
+      arr3.push(25)
+      arr3.push(25)
+      console.log(arr3)
+    //   console.log(arr3.top())
+   let x= arr3.top()
+    console.log(x)
+       arr3.print();
+       arr3.printReverse()
+       var y=arr3.size()
+      
+      arr3.pop()
+   
+     console.log(arr3)
+   
+</script>
+
+</html>

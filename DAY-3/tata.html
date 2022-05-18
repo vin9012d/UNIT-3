@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Car(a, b, c, d, e) {
+        this.tyre = a,
+            this.airbag = b,
+            this.sidemirror = c,
+            this.color = d,
+            this.engine = e
+    }
+
+    let cars = {
+        tyre: "4",
+        Sidemirror: "2",
+        engine: "4-stroke",
+        airbag: "2",
+        body: "metalic"
+
+    }
+
+    let harrier = new Car(4, "Yes",  2, "white", "4-stroke");
+    let indigo = new Car(4, "Yes",  4, "black", "2-stroke");
+    // console.log(harrier);
+    // console.log(indigo)
+
+    let harrier1 = Object.create(cars, { name: { value: "harrier" } });
+    let indigo1 = Object.create(cars, { name: { value: "indigo" } })
+    //   console.log(harrier1)
+    // console.log(indigo1)
+
+    Car.prototype.price = "1000";
+
+
+    Car.prototype.discount = function () {
+        console.log("50% discount");
+    };
+
+    Car.prototype.chnagecolor=function (col){
+        this.color=col;
+    }
+    console.log(harrier)
+    harrier.discount()
+    harrier.chnagecolor("red")
+    console.log(harrier)
+
+</script>
+
+</html>

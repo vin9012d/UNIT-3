@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let arr3 = new myArray(1, 2, 3, 4, 5, 6);
+    function myArray() {
+        // console.log(arguments.length)
+        Object.defineProperty(this, "length", {
+    value: 0,
+    writable: true,
+    enumerable: false,
+  });
+
+        this.length = arguments.length;
+        for (let i = 0; i < arguments.length; i++) {
+            this[i] = arguments[i]
+        }
+    }
+    console.log(arr3)
+    console.log(Object.values(arr3))  //--->>>>Object.value wil convert into the form of array and only take value from key-value pair                           
+      myArray.prototype.pop= function(){
+        //   console.log("myau")
+       delete this[this.length-1];
+         this.length--;
+      }
+      arr3.pop()
+      arr3.pop()
+      arr3.pop()
+    
+      myArray.prototype.push=function(value){
+          this[this.length]=value;
+          this.length++;
+      }
+      myArray.prototype.top=function(){
+        return this[this.length-1]
+      }
+
+      
+      myArray.prototype.print=function(){
+          let bag=""
+      
+       for(let i=0;i<this.length;i++){
+              bag=bag+this[i]+" ";
+              
+       }
+    console.log(bag) 
+      }
+
+      myArray.prototype.printReverse=function(){
+          let bag=""
+        
+       for(let i=this.length-1;i>=0;i--){
+              bag=bag+this[i]+" ";
+              
+       }
+    console.log(bag) 
+      }
+      
+      myArray.prototype.size=function (){
+          return this.length;
+      }
+
+
+      arr3.push(25)
+      arr3.push(25)
+      console.log(arr3)
+    //   console.log(arr3.top())
+   let x= arr3.top()
+    console.log(x)
+       arr3.print();
+       arr3.printReverse()
+       var y=arr3.size()
+      
+      arr3.pop()
+   
+     console.log(arr3)
+   
+</script>
+</html>
