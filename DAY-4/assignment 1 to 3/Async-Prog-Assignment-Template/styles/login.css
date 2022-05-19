@@ -1,0 +1,46 @@
+#navbar{
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+
+   
+    }
+    #navbar>a{
+        margin-right: 30px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+    #login-form-div{
+        
+        width: 40%;
+        margin: auto;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin-top: 50px;
+      
+    }
+    #login-form-div>form{
+      
+        padding: 30px;
+        
+    }
+    #login-form-div>form>input{
+       
+        width: 80%;
+        box-sizing: border-box;
+        margin-top: 20px;
+        font-size: 22px;
+
+    }
+    #login-form-div #submit{
+        background-color: rgb(12, 170, 12);
+        border: none;
+        width: 200px;
+        color: white;
+        font-weight: 200;
+        padding: 5px;
+        cursor: pointer;
+    }
