@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: right;
+            margin-right: 40px;
+        }
+        #display{
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;  
+           
+        }
+        #display img{
+            height: 200px;
+            width: 200px;
+            display: block;  
+        }
+    </style>
+</head>
+<body>
+    <form action="" onsubmit="order(event)" id="form">
+  <label for="">Burger</label>
+  <input type="checkbox" value="burger" id="burger" ><br>
+  <label for="">pizza</label>
+  <input type="checkbox" value="pizza" id="pizza"><br>
+  <label for="">tikki</label>
+  <input type="checkbox" value="tikki" id="tikki"><br>
+  <input type="submit" value="Order Food">
+</form>
+<h1 id="order_id"></h1>
+<div id="display">
+     
+    </div>
+</div>
+</body>
+
+<script>
+    let id=101;
+
+    function order(){
+     
+        
+event.preventDefault()
+ let form=document.querySelector("#form")
+ let burger=form.burger.checked;
+ let pizza=form.pizza.checked;
+ let tikki=form.tikki.checked;
+//  console.log(burger)
+//  console.log(pizza)
+//  console.log(tikki)
+function checkContent(){ 
+    return true;
+}
+
+ let content_promise=new Promise(function(resolve,reject){
+    let container=document.querySelector("#display")
+    container.innerHTML=null;
+      let image=document.createElement("img")
+            image.src="https://media3.giphy.com/media/l3nWhI38IWDofyDrW/200w.webp?cid=ecf05e47etysuk5nww12m2yoq9xvfa8e5qcaqkfjjqnyuh7p&rid=200w.webp&ct=g";
+            container.append(image)
+     let content=checkContent()
+     setTimeout(function(){
+
+
+     if(content===true){
+         resolve("Data is loaded")
+     }
+     else{
+         reject("Data is not loaded")
+     }
+    },4000)
+ })
+ content_promise.then(function(value){
+     console.log(value)
+     let container=document.querySelector("#display")
+     container.innerHTML=null;
+        let burger=form.burger.checked;
+        if(burger==true){
+            
+            image.src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500";
+            container.append(image)
+        }
+        let pizza=form.pizza.checked;
+        if(pizza==true){
+            let image1=document.createElement("img")
+            image1.src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500"
+            container.append(image1)
+        }
+        let tikki=form.tikki.checked;
+        if(tikki==true){
+            let image2=document.createElement("img")
+            image2.src="https://media.istockphoto.com/photos/heart-shaped-veg-paneer-cutlet-tikki-with-bhujia-sev-coating-made-of-picture-id1387220162?b=1&k=20&m=1387220162&s=170667a&w=0&h=IXO91Ne0034JbRq92_LvAC8xLMeNnLTVBE7FuqsZOJo=" 
+            container.append(image2)
+        }
+       id++;
+       document.querySelector("#order_id").innerText=`Order id ${id}`
+        
+ })
+
+ content_promise.catch(function(error){
+    let container=document.querySelector("#display")
+     container.innerHTML=null;
+     console.log(error)
+     let image=document.createElement("img")
+     image.src="https://image.shutterstock.com/image-vector/404-error-page-not-found-600w-2013537398.jpg";
+            container.append(image)
+            id++;
+       document.querySelector("#order_id").innerText=`Order id ${id}`
+ })
+    }
+</script>
+</html>
