@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/database.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+</head>
+<body>
+    <div id="navbar">
+        <a href="index1.html ">Dashboard</a>
+      <div id="unitsContainer">
+         
+      </div>
+        <a href="database.html">Add new Student</a>
+    </div>
+    <h1>Enter Student Details here</h1>
+    <form action="" id="form"  onsubmit="func()">
+        <input type="text" placeholder="Enter your name" id="name" required> <br>
+        <input type="text" placeholder="Enter image url" id="image" required><br>
+        <select name="" id="course">
+            <option value="">Select student course name</option>
+            <option value="Full stack web devlopment">Full stack web devlopment</option>
+            <option value="Business analyst">Business analyst</option>
+            <option value="UI/UX designing">UI/UX designing</option>
+        </select><br>
+        <select name="" id="unit">
+            <option value="">Select Unit</option>
+            <option value="Unit 1">Unit-1</option>
+            <option value="Unit 2">Unit-2</option>
+            <option value="Unit 3">Unit-3</option>
+            <option value="Unit 4">Unit-4</option>
+            <option value="Unit 5">Unit-5</option>
+            <option value="Unit 6">Unit-6</option>
+        </select><br>
+      
+        <select name="" id="batch">
+            <option value="">Select batch</option>
+            <option value="Web-17">Web-17</option>
+            <option value="Web-18">Web-18</option>
+            <option value="Web-19">Web-19</option>
+
+        </select><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script src="./javascript/database.js"></script>

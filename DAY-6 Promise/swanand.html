@@ -13,7 +13,7 @@
 <script>
     let image=document.querySelector("#loading_image")
     function checkContant(){
-        return false;
+        return true;
     }
     let content_promise=new Promise(function(resolve,reject) {
 
@@ -38,7 +38,7 @@ setTimeout(function (){
     content_promise.then(function(value){
         console.log("value:",value)
         image.src="https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g"
-    })  
+    })
     content_promise.catch(function(err){
         console.log("err:",err)
         image.src="https://media0.giphy.com/media/kEtm4mSTbxvH7j3uCu/200w.webp?cid=ecf05e47zh8k86efe9ahg0hxr3vzcy7e29olzq7bo955n71m&rid=200w.webp&ct=g"
