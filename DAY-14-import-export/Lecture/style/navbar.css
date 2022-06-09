@@ -1,0 +1,10 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+#navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 0px 20px 0px 20px;
+}

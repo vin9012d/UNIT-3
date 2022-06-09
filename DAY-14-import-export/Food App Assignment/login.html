@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+    <style>
+           form{
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+        form input{
+            width: 100%;
+            margin-top: 10px;
+            font-size: 22px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="navbar">
+
+
+</div>
+ 
+    <form action="" onsubmit="login(event)" id="form">
+        <h1>Login</h1>
+    <input type="text" placeholder="enter your email" id="email"> <br>
+    <input type="text" placeholder="enter your password" id="password"> <br>
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>
+<script type="module">
+    import navbar from "./components/navbar.js"
+    document.querySelector("#navbar").innerHTML=navbar()
+
+
+</script>
+
+<script>
+    let data=JSON.parse(localStorage.getItem("signUpData"));
+    
+ login=(event)=>{
+
+        let form=document.querySelector("#form");
+        let email=form.email.value;
+        let password=form.password.value;
+    if(data){
+        let eml=data.email;
+        let pwd=data.password;
+        if(eml=email  && pwd==password){
+            alert("Logged in succesful")
+            data.login=true;
+            localStorage.setItem("signUpData",JSON.stringify(data))
+        }
+        else{
+            alert("wrong credential entered")
+        }
+
+    }
+    else
+    alert("Please do signup first")
+
+}
+</script>

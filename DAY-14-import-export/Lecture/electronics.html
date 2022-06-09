@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+</head>
+<body>
+    <div id="navbar">
+     
+    </div>
+    <h1>Electronics</h1>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script type="module">
+    import navbar from "/components/navbar.js";
+
+    document.querySelector("#navbar").innerHTML=navbar();
+/*
+    let getData= async ()=>{
+        const url=`https://fakestoreapi.com/products/category/electronics`;
+
+        try{
+
+            let res=await fetch(url);
+            let data= await res.json();
+            console.log(data)
+            append(data)
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+    getData()
+
+  let  append =async(data)=>{
+    let container=  document.querySelector("#container")
+
+        data.forEach(function(ele){
+
+        let box=document.createElement('div');
+        let image=document.createElement("img")
+        image.src=ele.image;
+        let name=document.createElement("p");
+        name.innerText=ele.title;
+        box.append(image,name)
+        container.append(box)
+    })
+}
+*/
+// console.log("myau")
+import {getData,append} from "/components/fetchExport.js";
+let url=`https://fakestoreapi.com/products/category/electronics`
+let data=await getData(url)
+console.log("data",data)
+let container= document.querySelector("#container")
+append(data,container)
+
+</script>

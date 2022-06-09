@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+    <style>
+        form{
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+        form input{
+            width: 100%;
+            margin-top: 10px;
+            font-size: 22px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="navbar">
+
+</div>
+ 
+    <form  onsubmit="signup(event)" id="form">
+        <h1>Signup</h1>
+        <input type="text" placeholder="enter your name" id="name" required> <br>
+        <input type="text" placeholder="enter mobile number" id="number" required> <br>
+        <input type="text" placeholder="enter your email" id="email" required> <br>
+        <input type="text" placeholder="enter your password" id="password" required> <br>
+        <input type="submit" value="submit">
+    </form>
+    
+</body>
+</html>
+<script type="module">
+       import navbar from "./components/navbar.js";
+    document.querySelector("#navbar").innerHTML=navbar();
+</script>
+
+
+<script>
+
+function SignupData(name,number,email,password){
+    this.name=name;
+    this.number=number;
+    this.email=email;
+    this.password=password;
+    this.login=false;
+}
+
+
+       signup=(event)=>{
+     
+        event.preventDefault();
+        
+    let form=document.querySelector("#form");
+    let name=form.name.value;
+    let number=form.number.value;
+    let email=form.email.value;
+    let password=form.password.value;
+    let p1=new SignupData(name,number,email,password);
+    localStorage.setItem("signUpData",JSON.stringify(p1))
+      }
+</script>

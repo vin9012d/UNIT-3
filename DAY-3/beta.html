@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //************
+    /*
+    function Car(){
+        this.wheel="4",
+        this.horn="Yes";
+    //   color="white"
+    }
+
+    let p1=new Car();
+    */
+    //   console.log(p1)
+      //********
+      //------>>>>>> Call,apply bind
+      let dog={
+          leg:4,
+          eyes:2,
+          tail:"yes"
+      }
+      let monkey={
+          leg:2,
+          eyes:2,
+          tail:"yes"
+      }
+      function func(a){
+          this.name=a;
+          console.log(this.name +" has "+this.leg+" legs")
+      }
+    //   console.log(dog)
+     func.call(monkey,"monkey")
+     func.apply(dog,["dog"])
+     let p1=func.bind(monkey,"monkey");
+     console.log(p1)//print the function with updated value;
+    p1()  //simply calling the function
+
+    function NikeProduct(n, b, p) {
+  this.name = n;
+  this.brand = b;
+  this.price = p;
+  this.print = function () {
+    console.log(this);
+  };
+}
+
+let d1 = new NikeProduct("shoe", "nike", 1000);
+console.log(d1)
+d1.print()
+
+
+    
+</script>
+</html>

@@ -1,0 +1,17 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    
+}
+#option{
+    display: flex;
+   
+}
+#navbar a{
+    color: white;
+    text-decoration: none;
+}
+#option h3{
+    margin-right: 40px;
+}

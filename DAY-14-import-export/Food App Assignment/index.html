@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+  <style>
+      #search{
+         
+          width: 50%;
+          margin: auto;
+          margin-top: 50px;
+      }
+      #search input{
+          font-size: 35px;
+      }
+      #search button{
+          font-size: 35px;
+      }
+      #container{
+          display: grid;
+          grid-template-columns: repeat(4,1fr);
+          gap: 30px;
+          margin-top: 40px;
+      }
+      #container img{
+          width: 100%;
+      }
+  </style>
+</head>
+<body>
+    <div id="navbar">
+    </div>
+    
+    <div id="search">
+        
+         <input type="text" placeholder="Search recepie" id="query">
+         <button id="recepie" >Search</button>
+    </div>
+<div id="container">
+
+</div>
+
+</body>
+</html>
+<script type="module">
+    
+    import navbar from "./components/navbar.js";
+   document.querySelector("#navbar").innerHTML=navbar()
+     
+
+   import {getData,append} from "./components/fetchAppend.js"
+   let container=document.querySelector("#container");
+    
+  
+         
+      
+         document.querySelector("#recepie").addEventListener("click",recepie)
+   async function recepie(){
+    let query=document.querySelector("#query").value;
+    const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+    console.log(query)
+     let x=await getData(url);
+     console.log(x)
+     append(x.meals,container)
+
+     }
+     let data=JSON.parse(localStorage.getItem("signUpData"));
+
+     if(data.login){
+        document.querySelector("#signup").innerText=data.name;
+     }
+    
+
+     
+   
+</script>
