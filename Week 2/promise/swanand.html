@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="loading_image" src="https://media3.giphy.com/media/l3nWhI38IWDofyDrW/200w.webp?cid=ecf05e47etysuk5nww12m2yoq9xvfa8e5qcaqkfjjqnyuh7p&rid=200w.webp&ct=g" alt="loader">
+</body>
+</html>
+<script>
+    let image=document.querySelector("#loading_image")
+    function checkContant(){
+        return false;
+    }
+    let content_promise=new Promise(function(resolve,reject) {
+
+let content=checkContant();
+setTimeout(function (){
+    if(content===true){
+            //promise is resolved
+            resolve("Cnotent is loaded");
+        }
+        else{
+            //promise is rejected
+            reject("content failed to load")
+        }  
+
+},3000)
+   
+    });
+    console.log("promite_promise:", content_promise)
+
+    //Is it time to grab the proise value?
+    //how--> .then and .catch
+    content_promise.then(function(value){
+        console.log("value:",value)
+        image.src="https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g"
+    })  
+    content_promise.catch(function(err){
+        console.log("err:",err)
+        image.src="https://media0.giphy.com/media/kEtm4mSTbxvH7j3uCu/200w.webp?cid=ecf05e47zh8k86efe9ahg0hxr3vzcy7e29olzq7bo955n71m&rid=200w.webp&ct=g"
+    })
+</script>

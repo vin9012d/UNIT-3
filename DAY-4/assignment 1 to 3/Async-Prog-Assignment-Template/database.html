@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup</title>
+    </head>
+    <link rel="stylesheet" href="./styles/signup.css">
+
+    <body>
+        <div id="navbar">
+            <a href="index.html">Home</a>
+            <a href="signup.html">Signup</a>
+            <a href="login.html">Login</a>
+           
+         </div>
+
+        <div id="signup-form-div">
+       <h1>Upload movie details</h1>
+            <form id="dataBase" onsubmit="saveMovie()">
+                <!--Write form input elements here-->
+                <input type="text" id="name" placeholder="Enter your movie name name"><br>
+                <input type="date" id="date">
+                <input type="text" id="image" placeholder="Enter your photo link"><br>
+                <input type="text" id="rating" placeholder="Enter your rating out of 10"><br>
+                <input type="text" id="language" placeholder="Movie Language"><br>
+               
+                <input id="submit" type="Submit">
+
+               
+
+            </form>
+
+        </div>
+    </body>
+<script>
+
+    let movieData=JSON.parse(localStorage.getItem("movies")) || [];
+    let form=document.querySelector("#dataBase")
+    function Movies(a,b,c,d,e){
+        this.name=a;
+        this.data=b;
+        this.image=c;
+        this.rating=d;
+        this.language=e;
+    }
+
+    function saveMovie(){
+        event.preventDefault()
+        let name=form.name.value;
+        let date=form.date.value;
+        let image=form.image.value;
+        let rating=form.rating.value;
+        let language=form.language.value;
+        // console.log(language)
+        
+        let p1=new Movies(name,date,image,rating,language);
+        movieData.push(p1)
+        localStorage.setItem("movies",JSON.stringify(movieData))
+    
+       
+    }
+</script>
+</html>

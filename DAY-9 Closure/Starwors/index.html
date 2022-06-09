@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        body{
+            background-image: url(https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-14.jpg);
+        }
+        #container img{
+            display: block;
+            height: 150px;
+            width: 300px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        #container{
+            width: 40%;
+
+      
+        text-align: center;
+        margin: auto;
+  
+
+        }
+       
+   
+   #display{
+       width: 300px;
+       height: 300px;
+       /* border: solid 1px black; */
+       overflow: scroll;
+       color: white;
+       display: none;
+     
+
+   }
+   input{
+       width: 300px;
+       font-size: 20px;
+   }
+   button{
+       font-size: 22px;
+   }
+    </style>
+ 
+</head>
+<body>
+    <div id="container">
+        <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/12/maxresdefault-13.jpg?auto=format&q=60&fit=max&w=930" alt="">
+    <input oninput="throttle(main,1000)" type="text" placeholder="Search Charachter" id="search">
+    <button onclick="main()">Search</button>
+    <div id="display"></div>
+</div>
+</body>
+</html>
+<script src="./starwars.js"></script>

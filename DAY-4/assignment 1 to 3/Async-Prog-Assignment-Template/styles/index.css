@@ -1,0 +1,42 @@
+#navbar {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+
+
+}
+
+#navbar>a {
+    margin-right: 30px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#movies {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, auto);
+    gap: 30px;
+    margin: auto;
+    margin-top: 30px;
+}
+#movies img{
+    width: 100%;
+}
+#sort-buttons{
+    margin-top: 30px;
+    width: 70%;
+    margin: auto;
+}
+#slideshow{
+    width: 70%;
+    margin: auto;
+}
+#slideshow img{
+    margin-top: 30px;
+    width: 100%;
+}
