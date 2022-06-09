@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/39a06da8de.js" crossorigin="anonymous"></script>
+    <style>
+        #logo img{
+            width: 100px;
+            height: 50px;
+        }
+    .glass,.icons{
+        font-size: 35px;
+    }
+    #query{
+        font-size: 35px;
+        width:80%;
+    }
+    #search_btn{
+        padding: 5px 20px 5px 20px;
+        margin-left: -5px;
+    }
+    #voice{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        border: none;
+     
+        
+    }
+    .voice{
+        font-size: 35px;  
+      
+    }
+    #container{
+        display: flex;
+       justify-content: space-between;
+    }
+    #search{
+        /* margin-left: 10%; */
+        width: 50%;
+        /* border: 1px solid red; */
+    }
+   
+    #icons span{
+        margin-left: 22px;
+    }
+    #videos{
+        display: grid;
+        grid-template-columns: repeat(4,auto);
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+    #videos img{
+        width: 100%;
+        height: 70%;
+    }
+
+    
+    </style>
+</head>
+<body><hr>
+    <div id="container">
+    <div id="logo">
+        <img src="https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944__340.png" alt="logo">
+    </div>
+    <div id="search">
+<input type="text" placeholder="Search" id="query">
+<button id="search_btn" onclick="search()">  <i class="fa-solid fa-magnifying-glass glass"></i>  </button>
+<button id="voice"><i class="fa-solid fa-microphone voice" ></i></button>
+</div>
+<div id="icons">
+<span><i class="fa-solid fa-video icons"></i></span>
+ <span><i class="fa-solid fa-table-cells icons"></i></span>
+ <span><i class="fa-solid fa-bell icons"></i></span>
+ <span><i class="fa-solid fa-face-flushed icons"></i></span>
+</div>
+</div>
+<hr>
+<div id="videos"></div>
+</body>
+</html>
+<script src="youtube.js"></script>
