@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="post">
+        <form action="" onsubmit="postData(event)" id="form">
+            <input type="number" placeholder="enter id" id="id">
+            <input type="text" placeholder="enter product name" id="name">
+            <input type="text" placeholder="enter product image id" id="image">
+            <input type="text" id="salary" placeholder="price">
+            <input type="submit" value="Add product" >
+        </form>
+    </div>
+    <div id="delete">
+        <form action="" onsubmit="deleteData(event)" id="form1">
+            <input type="number" placeholder="enter id" id="idea">
+         
+            <input type="submit" value="Delete Product" >
+        </form>
+    </div>
+
+<div id="patch">
+    <form action="" onsubmit="patchData(event)" id="form2">
+        <input type="number" placeholder="enter id" id="idea1">
+     
+        <input type="submit" value="Patch Product" >
+    </form> 
+</div>
+<div id="put">
+    <form action="" onsubmit="putData(event)" id="form3">
+        <input type="number" placeholder="enter id" id="idea2">
+     
+        <input type="submit" value="Put Product" >
+    </form> 
+</div>
+
+
+
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+
+async function postData(){
+    event.preventDefault();
+    let form=document.querySelector("#form");
+
+    const data={
+        id:form.id.value,
+        name:form.name.value,
+        price:form.salary.value,
+        image:form.image.value,
+    }
+ 
+  let response=await fetch("http://localhost:5001/api/products", {
+      method:"POST",
+      body:JSON.stringify(data),
+      headers:{"Content-Type":"application/json"}
+  });
+let dat=await response.json()
+
+}
+async function deleteData(){
+    event.preventDefault();
+    let form=document.querySelector("#form1");
+    let id=form.idea.value;
+  let response=await fetch(`http://localhost:5001/api/products/${id}`, {
+      method:"DELETE",
+    
+      headers:{"Content-Type":"application/json"}
+  });
+let dat=await response.json()
+
+}
+async function patchData(){
+    event.preventDefault();
+    let form=document.querySelector("#form2");
+    let id=form.idea1.value;
+  let response=await fetch(`http://localhost:5001/api/products/${id}`, {
+      method:"PATCH",
+      body:JSON.stringify({
+          id:`${id}`,
+          name:"myau"
+      }),
+      headers:{"Content-Type":"application/json"}
+  });
+let dat=await response.json()
+
+}
+async function putData(){
+    event.preventDefault();
+    console.log("bhau")
+    let form=document.querySelector("#form3");
+    let id=form.idea2.value;
+  let response=await fetch(`http://localhost:5001/api/products/${id}`, {
+      method:"PUT",
+      body:JSON.stringify({
+          
+          name:"myau"
+      }),
+      headers:{"Content-Type":"application/json"}
+  });
+let dat=await response.json()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function getData(){
+let res=await fetch(`http://localhost:5001/api/products`);
+let data=await res.json()
+append(data)
+
+}
+
+
+
+function append(data){
+    let container=document.querySelector("#container");
+    container.innerHTML=null;
+    data.forEach((ele)=>{
+        let box=document.createElement("div");
+
+let image=document.createElement("img");
+image.src=ele.image;
+
+        let name=document.createElement("p")
+        name.innerText=ele.name;
+       
+        let price=document.createElement("p");
+        price.innerText=ele.price;
+
+        box.append(image,name,price)
+        container.append(box)
+        
+        
+
+       
+        
+    })
+}
+
+
+
+</script>

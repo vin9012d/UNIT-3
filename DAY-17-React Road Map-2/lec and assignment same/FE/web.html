@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+    
+async function getData(){
+let res=await fetch(`http://localhost:5001/api/products`);
+let data=await res.json()
+append(data)
+
+}
+
+
+
+function append(data){
+    let container=document.querySelector("#container");
+    container.innerHTML=null;
+    data.forEach((ele)=>{
+        let box=document.createElement("div");
+
+let image=document.createElement("img");
+image.src=ele.image;
+
+        let name=document.createElement("p")
+        name.innerText=ele.name;
+       
+        let price=document.createElement("p");
+        price.innerText=ele.price;
+
+        box.append(image,name,price)
+        container.append(box)
+        
+        
+
+       
+        
+    })
+}
+getData()  
+</script>

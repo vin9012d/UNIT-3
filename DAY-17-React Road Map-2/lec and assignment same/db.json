@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "veg",
+      "price": "1",
+      "image": "https://media.istockphoto.com/photos/wooden-box-full-of-homegrown-produce-picture-id1251268379?b=1&k=20&m=1251268379&s=170667a&w=0&h=i6A24plhYKBE-bg7-How6PUWy9KUnvpOAzElGaQB77U="
+    },
+    {
+      "id": "2",
+      "name": "vegos",
+      "price": "2",
+      "image": "https://media.istockphoto.com/photos/wooden-box-full-of-homegrown-produce-picture-id1251268379?b=1&k=20&m=1251268379&s=170667a&w=0&h=i6A24plhYKBE-bg7-How6PUWy9KUnvpOAzElGaQB77U="
+    },
+    {
+      "name": "myau",
+      "id": "3"
+    }
+  ]
+}
